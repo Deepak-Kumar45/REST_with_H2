@@ -11,7 +11,6 @@ import com.spring.rest_with_h2.exceptions.StudentNotFoundException;
 import com.spring.rest_with_h2.repository.StudentRepository;
 import com.spring.rest_with_h2.service.StudentService;
 
-import jakarta.annotation.PostConstruct;
 
 @Service
 public class StudentServiceImpl implements StudentService{
