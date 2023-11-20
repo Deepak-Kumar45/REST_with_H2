@@ -5,6 +5,8 @@ import java.util.List;
 import com.spring.rest_with_h2.entity.Student;
 
 public interface StudentService {
+
+    public Student addTestStd();
     
     public Student addStudent(Student std);
 

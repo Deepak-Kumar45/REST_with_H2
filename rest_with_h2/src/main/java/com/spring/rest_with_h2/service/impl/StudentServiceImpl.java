@@ -11,6 +11,8 @@ import com.spring.rest_with_h2.exceptions.StudentNotFoundException;
 import com.spring.rest_with_h2.repository.StudentRepository;
 import com.spring.rest_with_h2.service.StudentService;
 
+import jakarta.annotation.PostConstruct;
+
 @Service
 public class StudentServiceImpl implements StudentService{
 
@@ -19,6 +21,7 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public Student addStudent(Student std) {
+        std.setLastModified(new Date());
         Student s=repository.save(std);
         return s;
     }
@@ -54,8 +57,14 @@ public class StudentServiceImpl implements StudentService{
         s.setLastModified(new Date());
         s.setStdMail(std.getStdMail());
         s.setStdName(std.getStdName());
+        s.setLastModified(new Date());
         Student s1=repository.save(s);
         return s1;
+    }
+
+    public Student addTestStd() {
+        Student std=new Student("Test name", "test@gmail.com", "test course", 23.03, new Date());
+        return repository.save(std);
     }
     
 }

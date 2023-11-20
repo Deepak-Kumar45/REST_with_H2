@@ -11,7 +11,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,7 +18,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "tbl_student")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Student {
     @Id
@@ -31,4 +29,12 @@ public class Student {
     private double fees;
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModified;
+    public Student(String stdName, String stdMail, String course, double fees, Date lastModified) {
+        this.stdName = stdName;
+        this.stdMail = stdMail;
+        this.course = course;
+        this.fees = fees;
+        this.lastModified = lastModified;
+    }
+    
 }

@@ -32,6 +32,11 @@ public class HomeController {
         return new ResponseEntity<List<Student>>(service.getAllStudents(), HttpStatus.OK);
     }
 
+    @PostMapping("/student/test")
+    public ResponseEntity<Student> addTest(){
+        return new ResponseEntity<Student>(service.addTestStd(), HttpStatus.CREATED);
+    }
+
     @GetMapping("/student/{id}")
     public ResponseEntity<Student> getStudent(@PathVariable("id") int id){
         return new ResponseEntity<Student>(service.getStudent(id), HttpStatus.OK);
