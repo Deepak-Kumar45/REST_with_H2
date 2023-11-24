@@ -1,6 +1,7 @@
 package com.spring.rest_with_h2.repository;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,10 @@ public class StdRepoTest {
 
     @Test
     public void getStds(){
-        System.out.println(stdRepo.findAll());
+        List<Std> stds=stdRepo.findAll();
+        if(stds.isEmpty()){
+            System.err.println("\t\t!!..No content found..!!");
+        }
+        System.out.println();
     }
 }
